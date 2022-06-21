@@ -3,6 +3,7 @@ import Inicio from './componentes/inicio/Inicio'
 import React from 'react';
 import Pokemon from './componentes/body/pokemon';
 import {BrowserRouter as Router, Switch, Route,Link,Routes} from "react-router-dom";
+import Pokedex from './componentes/body/pokemones';
 
 const Home = () => 
 <div>Home</div>;
@@ -21,7 +22,8 @@ function App() {
     <main>
       <Routes>
         <Route exact path="/" element={<Inicio />} />
-        <Route exact path="/Pokemones" element={<Pokemon/>} />
+        <Route exact path="/Pokemones" element={<Pokemon/>}/>
+
         
         {/*<Route exact path="/user" element={<User />} /> */}
       </Routes>

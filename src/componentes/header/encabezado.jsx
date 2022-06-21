@@ -34,12 +34,15 @@ return(
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Usuario</Offcanvas.Title>
+                
+        
+              
         </Offcanvas.Header>
+        <Offcanvas.Title ><img src="img/5.png" alt="" style={{marginTop:"50px",marginLeft:"100px"}} />  </Offcanvas.Title>
+
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
+       <b style={{textAlign:"center"}}>Alberto</b>
+       </Offcanvas.Body>
       </Offcanvas>
     </>
  
