@@ -1,17 +1,29 @@
-import { searchPokemon,getPokemon } from '../../Controller/api';
+import { searchPokemon,getPokemon, getPokemonData } from '../../Controller/api';
 import React from 'react';
 import Pokedex from './pokemones';
+import CardPokemon from './cardpokemon';
+
 const {useState,useEffect} =React;
 
 const Pokemon=() =>{
   const [pokemones, setPokemones]=useState([]);
   const[search,setSearch] =useState('');
   const[pokemon,setpokemon] =useState();
-
+  const[page, setPage] = useState(0);
+  const[total, setTotal] = useState(0);
+  const[loading, setLoading] = useState(true);
   const fetchPokemones=async ()=>{
     try{
-      const data= await getPokemon();
-      setPokemones(data.results);
+      const data= await getPokemon(25, 25*page);
+/*       setPokemones(data.results); */
+      const promises=data.results.map(async (pokemon)=>{
+        return  await getPokemonData(pokemon.url);
+
+      })
+      const results =await Promise.all(promises)
+      setPokemones(results)
+      setLoading(false);
+      setTotal(Math.ceil(data.count/25));
     } catch(err){
 
     }
@@ -20,21 +32,31 @@ const Pokemon=() =>{
 useEffect(() => {
 fetchPokemones();
   
-}, []);
+}, [page]);
 
 
 
 const onChange= (evt)=>{
-console.log(evt.target.value);
-setSearch(evt.target.value);
+/* console.log(evt.target.value);
+ */setSearch(evt.target.value);
 };
 
 const onClick = async (evt) => {
-const data= await searchPokemon(search);
-setpokemon(data);
-console.log(data);
-
+/* const data= await searchPokemon(search);
+setpokemon(data); */
+onSearch(search);
 };
+const onSearch = async (pokemon)=>{
+  setLoading(true);
+  const result = await searchPokemon(pokemon);
+  if(!result){
+    return console.log("no hay resultado")
+  }else{
+    setPokemones([result]);
+  }
+
+  setLoading(false);
+}
 
 
   return (
@@ -59,7 +81,15 @@ console.log(data);
 <img src={pokemon.sprites.front_default}/> */}
 </div>
 <div className="d-flex justify-content-center">
-<Pokedex pokemones={pokemones}/>
+  {loading ? (
+  <div> cargando pokemones . . .</div>
+  ) : (
+<Pokedex pokemones={pokemones}
+page={page}
+setPage={setPage}
+total={total}
+/>
+  )}
 
 </div>
 </div>

@@ -33,3 +33,4 @@ function DesplegableAside() {
   render(<DesplegableAside />);
 
   export default DesplegableAside;
+  
