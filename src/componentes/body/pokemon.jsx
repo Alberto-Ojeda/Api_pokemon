@@ -71,6 +71,7 @@ const onSearch = async (pokemon)=>{
 
   return (
 <div>
+  <span className='escritura'>BIENVENIDO A LA POKEDEX</span>
 <div className="d-flex justify-content-center" style={{marginTop:"80px"}}>
 <div style={{padding:"20px"}}>
 
@@ -105,7 +106,7 @@ total={total}
   
 </div>
 
-<div className="pokemones-column" style={{ marginLeft:"50px"}} onClick={console.log("hola")}>
+<div className="pokemones-column" style={{ marginLeft:"50px"}} >
 {/* toma los elementos del array y regresa */}
 {pokemones.map((pokemon,idx) => {
 return(

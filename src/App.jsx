@@ -16,7 +16,7 @@ function App() {
   return (
   
     <div className="App">
-<header style={{backgroundColor:"rgb(18, 36, 64)"}}>
+<header style={{backgroundColor:"rgb(64, 56, 74)"}}>
       <Apartados/>
     </header>
     <main>

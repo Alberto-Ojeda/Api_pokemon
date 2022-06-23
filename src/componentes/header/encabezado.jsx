@@ -27,7 +27,7 @@ return(
   
 
     <>
-      <Button style={{backgroundColor:"rgb(18, 36, 64)",border:"none"}}  class="navbar-brand" variant="primary" onClick={handleShow}>
+      <Button style={{backgroundColor:"rgb(64, 56, 74)",border:"none"}}  class="navbar-brand" variant="primary" onClick={handleShow}>
       <img width={'100px'} height={'100px'}  src='https://pngimg.com/uploads/pokeball/pokeball_PNG7.png'  alt="" />        
 
       </Button>

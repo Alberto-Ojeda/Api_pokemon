@@ -13,7 +13,7 @@ const CardPokemon =(props,infoPokemon)=>{
 /*     console.log(pokemon);
  */    return(
         <div className='cardpokemon'>
-            <div className='pokemon-img-card' style={{width:"250px"}} key={pokemon.id} >
+            <div className='pokemon-img-card' style={{width:"350px"}} key={pokemon.id} >
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} 
                 alt={pokemon.name}
                 className="pokemon-img"
@@ -29,10 +29,18 @@ const CardPokemon =(props,infoPokemon)=>{
                 <div>
                     <div className='abilities'>
                         {pokemon.types.map((type,idx) => {
-                            return <div key={idx}> {type.type.name} </div>; 
+                            return <div key={idx} className={type.type.name} >  {type.type.name} </div>; 
 })}
                     </div>
-                     
+                    <div className='stats'>
+                    {pokemon.stats.map((stats,idx) => {
+                            return <div key={idx} className={stats.stat.name} >  <div className='points' align="justify">  <p>{stats.stat.name}</p> <p>   {stats.base_stat} </p> <p className='bar_power'></p>  </div>
+
+                             </div>
+                            ;
+                        })}
+
+                </div>
                 </div>
             </div>
         </div>
