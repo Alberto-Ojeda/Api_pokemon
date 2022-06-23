@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+.cardpokemon{
+  display: grid;
+  width: 250px;
+  height: 350px;
+/*   grid-template-columns: auto auto auto; */
+  border: black;
+  background-color:rgb(96, 85, 112) ;
+
+}
+.pokemon-img-card{
+    width: 250px;
+background-color: rgb(216, 192, 252);
+    overflow: hidden;
+}
+.pokemon-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    height: 90%;
+transition: 0.5s;
+object-fit: cover;
+}
+.pokemon-img:hover{
+    transform: scale(1.2);
+}
+
+.card-top{
+    font-family: 'Rowdies', cursive;    
+    color:white;
+    text-align: center;
+}
+.pokemones-column{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:28px;
+}
+.abilities{
+    color:white;
+
+    display: flex;
+justify-content: space-around;
+margin-bottom: 20px;}
+
+
+/* personalizar scroll */
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    background: rgba(51, 102, 147, 0.3);
+	width: 10px;
+} 
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 10px #00000070;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, .4);
+	background: linear-gradient(180deg, #122440,rgb(96, 85, 112));
+	border-radius: 5px;
+}
+
+::-moz-scrollbar {
+    background: rgba(51, 102, 147, 0.3);
+	width: 10px;
+} 
+::-moz-scrollbar-track {
+	box-shadow: inset 0 0 10px #00000070;
+	border-radius: 5px;
+}
+::-moz-scrollbar-thumb {
+	background: rgba(0, 0, 0, .4);
+	background: linear-gradient(125deg, #18181a,rgb(96, 85, 112));
+	border-radius: 5px;
+}
+/* personalizar scroll */
+
+/* preLoader */
